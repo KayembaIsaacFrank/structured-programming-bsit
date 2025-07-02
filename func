@@ -1,0 +1,15 @@
+##menu
+def menu():
+    print("1. BREAKFAST")
+    print("2.LUNCH")
+
+def handle_slelction(selected_value):
+    if selected_value == 1:
+        print("you have selected BREAKFAST")
+    elif selected_value == 2:
+        print("you have selected LUNCH")
+    else:
+        print("please enter the correct selection")
+
+def main():
+    menu()
