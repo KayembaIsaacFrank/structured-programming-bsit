@@ -1,0 +1,10 @@
+# Pythagorean theorem
+# Get input from user
+a = float(input("enter the length of side a:"))
+b = float(input("enter the length of side b:"))
+
+#calculating the hypotenuse
+c = (a**2 + b**2)**0.5
+
+# Displaying the result
+print(f"The length of the hypotenuse is: {c:.2f}")
