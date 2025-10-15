@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isaac's Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #444;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 1rem;
+            transition: background 0.3s;
+        }
+        nav a:hover {
+            background: #222;
+        }
+        section {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: none;
+        }
+        section.active {
+            display: block;
+        }
+        .projects-list {
+            list-style: none;
+            padding: 0;
+        }
+        .projects-list li {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #eee;
+            border-radius: 4px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        form input, form textarea {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        form button {
+            padding: 0.7rem;
+            background: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Isaac's Portfolio</h1>
+    </header>
+    <nav>
+        <a href="#home" onclick="showSection('home')">Home</a>
+        <a href="#about" onclick="showSection('about')">About</a>
+        <a href="#projects" onclick="showSection('projects')">Projects</a>
+        <a href="#contact" onclick="showSection('contact')">Contact</a>
+    </nav>
+    <section id="home" class="active">
+        <h2>Welcome!</h2>
+        <p>Hello! I'm Isaac. Welcome to my portfolio website.</p>
+    </section>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I am a passionate developer with experience in web technologies. I love building creative and useful projects.</p>
+    </section>
+    <section id="projects">
+        <h2>Projects</h2>
+        <ul class="projects-list">
+            <li>
+                <strong>Project One</strong><br>
+                A simple web app to track tasks.
+            </li>
+            <li>
+                <strong>Project Two</strong><br>
+                A weather dashboard using public APIs.
+            </li>
+            <li>
+                <strong>Project Three</strong><br>
+                Portfolio website (this site!).
+            </li>
+        </ul>
+    </section>
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form id="contactForm">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+        <div id="formMessage" style="margin-top:1rem;"></div>
+    </section>
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('section').forEach(sec => {
+                sec.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('formMessage').textContent = 'Thank you for reaching out, ' + document.getElementById('name').value + '!';
+            document.getElementById('contactForm').reset();
+        });
+    </script>
+</body>
+</html>
